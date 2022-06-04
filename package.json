@@ -1,0 +1,20 @@
+{
+  "name": "uzumejs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:docker": "docker build -t uzumejs_wasm docker",
+    "start:docker": "docker run -dit --net=host -v $PWD/wasm:/uzuem_src --name uzumejs_wasm uzumejs_wasm bash",
+    "stop:docker": "docker rm -f uzumejs_wasm",
+    "build:wasm": "docker exec -w /uzuem_src uzumejs_wasm ./build.sh bash && cp ./wasm/build/uzumejs.wasm ./pkg && cp ./wasm/build/uzumejs.js ./pkg && cp ./wasm/build/uzumejs.d.ts ./pkg"
+  },
+  "keywords": [],
+  "author": "Hal@shurabaP",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.39",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.3"
+  }
+}
