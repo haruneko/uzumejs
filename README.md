@@ -8,8 +8,6 @@ WORLD is high-quality speech analysis, manipulation and synthesis system by mmor
 
 TBD...
 
-
-
 # License
 
 Under MIT License.
@@ -24,6 +22,7 @@ npm run docker:start
 ```
 
 then
+
 ```
 npm run build
 ```

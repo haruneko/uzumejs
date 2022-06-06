@@ -17,17 +17,9 @@
     "build:common": "tsc",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:wasm": "docker exec -w /uzuem_src uzumejs_wasm ./build.sh bash && cp ./wasm/build/uzumewasm.wasm ./pkg && cp ./wasm/build/uzumewasm.js ./pkg && cp ./wasm/build/uzumewasm.d.ts ./pkg",
-
     "docker:build": "docker build -t uzumejs_wasm docker",
     "docker:start": "docker run -dit --net=host -v $PWD/wasm:/uzuem_src --name uzumejs_wasm uzumejs_wasm bash",
     "docker:stop": "docker rm -f uzumejs_wasm",
-
-    "lint": "run-s lint:*",
-    "lint:eslint": "eslint . --ext .ts,.tsx --fix",
-    "lint:prettier": "prettier --write .",
-
-    "prepare": "simple-git-hooks",
-
     "test": "jest"
   },
   "simple-git-hooks": {
@@ -40,15 +32,9 @@
     "@jest/types": "^28.1.0",
     "@types/jest": "^28.1.1",
     "@types/node": "^17.0.39",
-    "@typescript-eslint/eslint-plugin": "^5.27.0",
-    "@typescript-eslint/parser": "^5.27.0",
-    "eslint": "^8.17.0",
-    "eslint-config-prettier": "^8.5.0",
     "jest": "^28.1.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
-    "simple-git-hooks": "^2.8.0",
     "ts-jest": "^28.0.4",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3"
