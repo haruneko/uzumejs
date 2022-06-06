@@ -1,4 +1,4 @@
-import uzumejs from '../pkg/uzumejs';
+import factory from '../pkg/uzumewasm';
 
-export const init = () => uzumejs();
+export const init = () => factory();
 export default init;

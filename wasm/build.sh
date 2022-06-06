@@ -10,5 +10,5 @@ cd build
 # implicit dependency on Dockerfile. emsdk should be installed on `/emsdk`
 cmake -DCMAKE_TOOLCHAIN_FILE=/emsdk/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake ..
 cmake --build . --target all -- -j 6
-tsembind uzumejs.js > uzumejs.d.ts
+tsembind uzumewasm.js > uzumewasm.d.ts
 cd ..

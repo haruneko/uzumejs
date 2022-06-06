@@ -1,17 +1,17 @@
 cmake_minimum_required(VERSION 3.1)
 
-project(uzumejs)
+project(uzumewasm)
 
 include(ExternalProject)
 
 file(GLOB_RECURSE VOCODER_SOURCES ./lib/src/*.cpp)
 file(GLOB_RECURSE VOCODER_HEADERS ./lib/src/*.hpp)
 
-include_directories(uzumejs PRIVATE ./lib/src/)
+include_directories(uzumewasm PRIVATE ./lib/src/)
 
 message(VOCODER_SOURCES)
 
-add_executable(uzumejs
+add_executable(uzumewasm
         src/EstimateF0Bindings.cpp
         src/SpectrogramBindings.cpp
         src/SynthesizeWaveformBindings.cpp
@@ -26,7 +26,19 @@ add_executable(uzumejs
 
 if (EMSCRIPTEN)
     set(CMAKE_EXECUTABLE_SUFFIX ".js")
-    set(lflags "--pre-js ${CMAKE_SOURCE_DIR}/src/resources/pre.js --post-js ${CMAKE_SOURCE_DIR}/src/resources/post.js -s WASM=1 -s MODULARIZE -s 'EXPORT_NAME=\"factory\"' --no-entry --bind")
-    set_target_properties(uzumejs PROPERTIES LINK_FLAGS ${lflags})
+    set(emcc_flags "--pre-js ${CMAKE_SOURCE_DIR}/src/resources/pre.js \
+--post-js ${CMAKE_SOURCE_DIR}/src/resources/post.js \
+--no-entry \
+--bind \
+-O3 \
+-s STRICT=1 \
+-s WASM=1 \
+-s ALLOW_MEMORY_GROWTH=1 \
+-s MALLOC=emmalloc \
+-s MODULARIZE=1 \
+-s FILESYSTEM=0 \
+-s 'EXPORT_NAME=\"factory\"' \
+")
+    set_target_properties(uzumewasm PROPERTIES LINK_FLAGS ${emcc_flags})
 endif()
 

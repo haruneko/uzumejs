@@ -12,18 +12,22 @@
     "node": ">=14"
   },
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "run-p build:common build:esm",
+    "prebuild": "rimraf dist && rimraf pkg && mkdir pkg",
+    "build": "run-s build:wasm build:common build:esm",
     "build:common": "tsc",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "build:docker": "docker build -t uzumejs_wasm docker",
-    "start:docker": "docker run -dit --net=host -v $PWD/wasm:/uzuem_src --name uzumejs_wasm uzumejs_wasm bash",
-    "stop:docker": "docker rm -f uzumejs_wasm",
-    "build:wasm": "docker exec -w /uzuem_src uzumejs_wasm ./build.sh bash && cp ./wasm/build/uzumejs.wasm ./pkg && cp ./wasm/build/uzumejs.js ./pkg && cp ./wasm/build/uzumejs.d.ts ./pkg",
+    "build:wasm": "docker exec -w /uzuem_src uzumejs_wasm ./build.sh bash && cp ./wasm/build/uzumewasm.wasm ./pkg && cp ./wasm/build/uzumewasm.js ./pkg && cp ./wasm/build/uzumewasm.d.ts ./pkg",
+
+    "docker:build": "docker build -t uzumejs_wasm docker",
+    "docker:start": "docker run -dit --net=host -v $PWD/wasm:/uzuem_src --name uzumejs_wasm uzumejs_wasm bash",
+    "docker:stop": "docker rm -f uzumejs_wasm",
+
     "lint": "run-s lint:*",
     "lint:eslint": "eslint . --ext .ts,.tsx --fix",
     "lint:prettier": "prettier --write .",
+
     "prepare": "simple-git-hooks",
+
     "test": "jest"
   },
   "simple-git-hooks": {
