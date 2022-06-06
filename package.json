@@ -13,9 +13,8 @@
   },
   "scripts": {
     "prebuild": "rimraf dist && rimraf pkg && mkdir pkg",
-    "build": "run-s build:wasm build:common build:esm",
+    "build": "run-s build:wasm build:common",
     "build:common": "tsc",
-    "build:esm": "tsc -p tsconfig.esm.json",
     "build:wasm": "docker exec -w /uzuem_src uzumejs_wasm ./build.sh bash && cp ./wasm/build/uzumewasm.wasm ./pkg && cp ./wasm/build/uzumewasm.js ./pkg && cp ./wasm/build/uzumewasm.d.ts ./pkg",
     "docker:build": "docker build -t uzumejs_wasm docker",
     "docker:start": "docker run -dit --net=host -v $PWD/wasm:/uzuem_src --name uzumejs_wasm uzumejs_wasm bash",
