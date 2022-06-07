@@ -1,4 +1,4 @@
-import uzumejs from '../src';
+import uzumejs from '../dist/index';
 
 describe('uzumejs init function', () => {
   it('should return an object that has exported functions from wasm', async () => {

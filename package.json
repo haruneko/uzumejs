@@ -12,10 +12,10 @@
     "node": ">=14"
   },
   "scripts": {
-    "prebuild": "rimraf dist && rimraf pkg && mkdir pkg",
+    "prebuild": "rimraf dist && mkdir dist",
     "build": "run-s build:wasm build:common",
     "build:common": "tsc",
-    "build:wasm": "docker exec -w /uzuem_src uzumejs_wasm ./build.sh bash && cp ./wasm/build/uzumewasm.wasm ./pkg && cp ./wasm/build/uzumewasm.js ./pkg && cp ./wasm/build/uzumewasm.d.ts ./pkg",
+    "build:wasm": "docker exec -w /uzuem_src uzumejs_wasm ./build.sh bash && cp ./wasm/build/uzumewasm.wasm ./dist && cp ./wasm/build/uzumewasm.js ./dist/index.js && cp ./wasm/build/uzumewasm.d.ts ./dist/index.d.ts",
     "docker:build": "docker build -t uzumejs_wasm docker",
     "docker:start": "docker run -dit --net=host -v $PWD/wasm:/uzuem_src --name uzumejs_wasm uzumejs_wasm bash",
     "docker:stop": "docker rm -f uzumejs_wasm",
