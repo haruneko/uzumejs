@@ -32,9 +32,10 @@ if (EMSCRIPTEN)
 --bind \
 -O3 \
 -s STRICT=1 \
+-s MALLOC=emmalloc \
+-s EXPORT_ES6=1 \
 -s WASM=1 \
 -s ALLOW_MEMORY_GROWTH=1 \
--s MALLOC=emmalloc \
 -s MODULARIZE=1 \
 -s FILESYSTEM=0 \
 -s 'EXPORT_NAME=\"factory\"' \
