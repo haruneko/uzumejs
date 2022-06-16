@@ -6,10 +6,16 @@ import uzumejswasm from "../resources/uzumewasm.wasm";
 const uzumejs: () => Promise<UzumeJs> = () => {
     const js = require("../resources/uzumewasm.js");
     const b = Buffer.from(uzumejswasm.split(",")[1]!, "base64");
-    return js({wasmBinary: b}).then((v: CustomEmbindModule) => new UzumeJs(v));
+    const ret: Promise<UzumeJs> = js({wasmBinary: b}).then((v: CustomEmbindModule) => new UzumeJsImpl(v));
+    return ret;
 }
 
-class UzumeJs implements CustomEmbindModule {
+interface UzumeJs extends CustomEmbindModule {
+    CreateWaveformFrom: (data: Float32Array, sampleRate: number) => Waveform | null;
+    ArrayFromWaveform:(waveform: Waveform) => Float32Array;
+}
+
+class UzumeJsImpl implements UzumeJs {
     constructor(private wasm: CustomEmbindModule) { }
     EstimateF0 = this.wasm.EstimateF0;
     EstimateF0Wrapper = this.wasm.EstimateF0Wrapper;
@@ -20,6 +26,7 @@ class UzumeJs implements CustomEmbindModule {
     Spectrum = this.wasm.Spectrum;
     SynthesizeWaveform = this.wasm.SynthesizeWaveform;
     SynthesizeWaveformWrapper = this.wasm.SynthesizeWaveformWrapper;
+    SynthesizeWaveformWithWORLD = this.wasm.SynthesizeWaveformWithWORLD;
     WaveformSpectrogram = this.wasm.WaveformSpectrogram;
     EstimateF0WithDIO = this.wasm.EstimateF0WithDIO;
 
