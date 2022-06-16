@@ -24,6 +24,8 @@ EMSCRIPTEN_BINDINGS(WaveformBindings) {
             .function("indexAt", &uzume::vocoder::Waveform::indexAt)
             .function("rootMeanSquareBetween", select_overload<double(double, double)const>(&uzume::vocoder::Waveform::rootMeanSquareBetween))
             .function("maxAbsoluteValueBetween", select_overload<double(double, double)const>(&uzume::vocoder::Waveform::maxAbsoluteValueBetween))
+            .function("at", &uzume::vocoder::Waveform::at)
+            .function("setAt", &uzume::vocoder::Waveform::setAt)
             .property("length", &uzume::vocoder::Waveform::length)
             .property("samplingFrequency", &uzume::vocoder::Waveform::samplingFrequency)
             .class_function("read", &read, allow_raw_pointers())
