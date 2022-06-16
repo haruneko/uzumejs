@@ -20,6 +20,7 @@ add_executable(uzumewasm
         src/data/WaveformBindings.cpp
         src/spectrogram/WaveformSpectrogramBindings.cpp
         src/world/EstimateF0WithDIOBindings.cpp
+        src/world/SynthesizeWaveformWithWORLDBindings.cpp
         ${VOCODER_SOURCES}
         ${VOCODER_HEADERS}
         )
