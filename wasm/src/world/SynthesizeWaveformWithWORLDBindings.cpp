@@ -10,5 +10,5 @@ EMSCRIPTEN_BINDINGS(SynthesizeWaveformWithWORLDBindings) {
     class_<uzume::vocoder::world::SynthesizeWaveformWithWORLD, base<uzume::vocoder::SynthesizeWaveform> >("SynthesizeWaveformWithWORLD")
             .smart_ptr<std::shared_ptr<uzume::vocoder::world::SynthesizeWaveformWithWORLD>>("shared_ptr<uzume::vocoder::world::SynthesizeWaveformWithWORLD>")
             .constructor(&std::make_shared<uzume::vocoder::world::SynthesizeWaveformWithWORLD>)
-            .function("synthesis", &uzume::vocoder::world::SynthesizeWaveformWithWORLD::operator(), allow_raw_pointers());
+            .function("synthesize", &uzume::vocoder::world::SynthesizeWaveformWithWORLD::operator(), allow_raw_pointers());
 }
