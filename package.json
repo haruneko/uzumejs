@@ -1,7 +1,18 @@
 {
   "name": "uzumejs",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.2.0",
+  "description": "uzumejs is a thin wrapper of the vocoder, WORLD. WORLD is high-quality speech analysis, manipulation and synthesis system by mmorise. See more: https://github.com/mmorise/World",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/haruneko/uzumejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/haruneko/uzumejs/issues",
+    "email" : "harunyann@hotmail.com"
+  },
+  "author": "Hal@shurabaP",
+  "keywords": ["vocoder", "spectrogram", "voice", "waveform"],
+  "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -21,9 +32,6 @@
     "docker:stop": "docker rm -f uzumejs_wasm",
     "test": "jest"
   },
-  "keywords": [],
-  "author": "Hal@shurabaP",
-  "license": "MIT",
   "devDependencies": {
     "@jest/types": "^28.1.0",
     "@types/jest": "^28.1.1",
