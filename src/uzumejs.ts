@@ -19,6 +19,10 @@ export class UzumeJsImpl implements UzumeJs {
     SynthesizeWaveformWithWORLD = this.wasm.SynthesizeWaveformWithWORLD;
     WaveformSpectrogram = this.wasm.WaveformSpectrogram;
     EstimateF0WithDIO = this.wasm.EstimateF0WithDIO;
+    StretchedPartialSpectrogram = this.wasm.StretchedPartialSpectrogram;
+    LinearTimeAxisMap = this.wasm.LinearTimeAxisMap;
+    ArraySpectrogramAggregator = this.wasm.ArraySpectrogramAggregator;
+    SpectrogramVector = this.wasm.SpectrogramVector;
 
     CreateWaveformFrom = (data: Float32Array, sampleRate: number) => {
         if(data.length == 0 || sampleRate <= 0) {

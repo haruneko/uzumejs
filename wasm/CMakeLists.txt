@@ -16,8 +16,10 @@ add_executable(uzumewasm
         src/SpectrogramBindings.cpp
         src/SynthesizeWaveformBindings.cpp
         src/data/ContourBindings.cpp
+        src/data/LinearTimeAxisMapBindings.cpp
         src/data/SpectrumBindings.cpp
         src/data/WaveformBindings.cpp
+        src/spectrogram/ArraySpectrogramAggregatorBindings.cpp
         src/spectrogram/WaveformSpectrogramBindings.cpp
         src/spectrogram/StretchedPartialSpectrogramBindings.cpp
         src/world/EstimateF0WithDIOBindings.cpp

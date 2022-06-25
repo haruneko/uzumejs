@@ -1,6 +1,6 @@
 {
   "name": "uzumejs",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "uzumejs is a thin wrapper of the vocoder, WORLD. WORLD is high-quality speech analysis, manipulation and synthesis system by mmorise. See more: https://github.com/mmorise/World",
   "repository": {
     "type": "git",
