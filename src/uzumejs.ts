@@ -1,12 +1,12 @@
-import { CustomEmbindModule, Waveform } from "../resources/uzumewasm";
+import * as Wasm from "../resources/uzumewasm";
 
-export interface UzumeJs extends CustomEmbindModule {
-    CreateWaveformFrom: (data: Float32Array, sampleRate: number) => Waveform | null;
-    ArrayFromWaveform:(waveform: Waveform) => Float32Array;
+export interface UzumeJs extends Wasm.CustomEmbindModule {
+    CreateWaveformFrom: (data: Float32Array, sampleRate: number) => Wasm.Waveform | null;
+    ArrayFromWaveform:(waveform: Wasm.Waveform) => Float32Array;
 }
 
 export class UzumeJsImpl implements UzumeJs {
-    constructor(private wasm: CustomEmbindModule) { }
+    constructor(private wasm: Wasm.CustomEmbindModule) { }
     EstimateF0 = this.wasm.EstimateF0;
     EstimateF0Wrapper = this.wasm.EstimateF0Wrapper;
     Contour = this.wasm.Contour;
@@ -35,7 +35,7 @@ export class UzumeJsImpl implements UzumeJs {
         return ret;
     }
 
-    ArrayFromWaveform = (waveform: Waveform) => {
+    ArrayFromWaveform = (waveform: Wasm.Waveform) => {
         if(waveform.length == 0) {
             return new Float32Array(0);
         }
