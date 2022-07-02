@@ -5,7 +5,9 @@ export interface UzumeJs extends Wasm.CustomEmbindModule {
     ArrayFromWaveform:(waveform: Wasm.Waveform) => Float32Array;
 }
 
-export class UzumeJsImpl implements UzumeJs {
+export const CreateUzumeJs = (wasm: Wasm.CustomEmbindModule) => new UzumeJsImpl(wasm);
+
+class UzumeJsImpl implements UzumeJs {
     constructor(private wasm: Wasm.CustomEmbindModule) { }
     EstimateF0 = this.wasm.EstimateF0;
     EstimateF0Wrapper = this.wasm.EstimateF0Wrapper;
