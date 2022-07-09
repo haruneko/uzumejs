@@ -8,7 +8,7 @@ using namespace emscripten;
 
 EMSCRIPTEN_BINDINGS(ArraySpectrogramAggregatorBindings) {
     register_vector<const uzume::vocoder::Spectrogram *>("SpectrogramVector");
-    class_<uzume::vocoder::ArraySpectrogramAggregator>("ArraySpectrogramAggregator")
+    class_<uzume::vocoder::ArraySpectrogramAggregator, base<uzume::vocoder::Spectrogram>>("ArraySpectrogramAggregator")
         .smart_ptr<std::shared_ptr<uzume::vocoder::ArraySpectrogramAggregator>>("shared_ptr<uzume::vocoder::ArraySpectrogramAggregator>")
         .class_function("from", &uzume::vocoder::ArraySpectrogramAggregator::from, allow_raw_pointers())
         .function("pickUpSpectrumAt", &uzume::vocoder::ArraySpectrogramAggregator::pickUpSpectrumAt, allow_raw_pointers())
