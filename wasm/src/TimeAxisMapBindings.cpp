@@ -20,7 +20,7 @@ public:
 
 EMSCRIPTEN_BINDINGS(TimeAxisMap) {
     class_<uzume::vocoder::TimeAxisMap>("TimeAxisMap")
-        .allow_subclass<EstimateF0Wrapper>("TimeAxisMapWrapper")
-        .function("at", &uzume::vocoder::TimeAxisMap::at, pure_virtual());
+        .allow_subclass<TimeAxisMapWrapper>("TimeAxisMapWrapper")
+        .function("at", &uzume::vocoder::TimeAxisMap::at, pure_virtual())
         .function("msLength", &uzume::vocoder::TimeAxisMap::msLength, pure_virtual());
 }

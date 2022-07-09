@@ -9,22 +9,24 @@ export const CreateUzumeJs = (wasm: Wasm.CustomEmbindModule) => new UzumeJsImpl(
 
 class UzumeJsImpl implements UzumeJs {
     constructor(private wasm: Wasm.CustomEmbindModule) { }
-    EstimateF0 = this.wasm.EstimateF0;
-    EstimateF0Wrapper = this.wasm.EstimateF0Wrapper;
+    ArraySpectrogramAggregator = this.wasm.ArraySpectrogramAggregator;
     Contour = this.wasm.Contour;
-    Waveform = this.wasm.Waveform;
+    EstimateF0 = this.wasm.EstimateF0;
+    EstimateF0WithDIO = this.wasm.EstimateF0WithDIO;
+    EstimateF0Wrapper = this.wasm.EstimateF0Wrapper;
+    LinearTimeAxisMap = this.wasm.LinearTimeAxisMap;
     Spectrogram = this.wasm.Spectrogram;
+    SpectrogramVector = this.wasm.SpectrogramVector;
     SpectrogramWrapper = this.wasm.SpectrogramWrapper;
     Spectrum = this.wasm.Spectrum;
+    StretchedPartialSpectrogram = this.wasm.StretchedPartialSpectrogram;
     SynthesizeWaveform = this.wasm.SynthesizeWaveform;
     SynthesizeWaveformWrapper = this.wasm.SynthesizeWaveformWrapper;
     SynthesizeWaveformWithWORLD = this.wasm.SynthesizeWaveformWithWORLD;
+    TimeAxisMap = this.wasm.TimeAxisMap;
+    TimeAxisMapWrapper = this.wasm.TimeAxisMapWrapper;
+    Waveform = this.wasm.Waveform;
     WaveformSpectrogram = this.wasm.WaveformSpectrogram;
-    EstimateF0WithDIO = this.wasm.EstimateF0WithDIO;
-    StretchedPartialSpectrogram = this.wasm.StretchedPartialSpectrogram;
-    LinearTimeAxisMap = this.wasm.LinearTimeAxisMap;
-    ArraySpectrogramAggregator = this.wasm.ArraySpectrogramAggregator;
-    SpectrogramVector = this.wasm.SpectrogramVector;
 
     CreateWaveformFrom = (data: Float32Array, sampleRate: number) => {
         if(data.length == 0 || sampleRate <= 0) {
