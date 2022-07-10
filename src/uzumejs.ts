@@ -15,6 +15,7 @@ class UzumeJsImpl implements UzumeJs {
     EstimateF0WithDIO = this.wasm.EstimateF0WithDIO;
     EstimateF0Wrapper = this.wasm.EstimateF0Wrapper;
     LinearTimeAxisMap = this.wasm.LinearTimeAxisMap;
+    NaiveSpectrogram = this.wasm.NaiveSpectrogram;
     Spectrogram = this.wasm.Spectrogram;
     SpectrogramVector = this.wasm.SpectrogramVector;
     SpectrogramWrapper = this.wasm.SpectrogramWrapper;
