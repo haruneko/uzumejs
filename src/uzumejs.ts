@@ -11,9 +11,12 @@ class UzumeJsImpl implements UzumeJs {
     constructor(private wasm: Wasm.CustomEmbindModule) { }
     ArraySpectrogramAggregator = this.wasm.ArraySpectrogramAggregator;
     Contour = this.wasm.Contour;
+    ControlChange = this.wasm.ControlChange;
     EstimateF0 = this.wasm.EstimateF0;
     EstimateF0WithDIO = this.wasm.EstimateF0WithDIO;
     EstimateF0Wrapper = this.wasm.EstimateF0Wrapper;
+    F0EditedSpectrogram = this.wasm.F0EditedSpectrogram;
+    GenEditedSpectrogram = this.wasm.GenEditedSpectrogram;
     LinearTimeAxisMap = this.wasm.LinearTimeAxisMap;
     NaiveSpectrogram = this.wasm.NaiveSpectrogram;
     Spectrogram = this.wasm.Spectrogram;
