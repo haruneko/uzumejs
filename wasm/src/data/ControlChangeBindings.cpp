@@ -14,7 +14,7 @@ EMSCRIPTEN_BINDINGS(ControlChangeBindings) {
     register_vector<uzume::vocoder::ControlPoint>("VectorControlPoint");
     class_<uzume::vocoder::ControlChange>("ControlChange")
         .smart_ptr<std::shared_ptr<uzume::vocoder::ControlChange>>("ControlChangeSharedPointer")
-        .constructor(&std::make_shared<std::vector<uzume::vocoder::ControlPoint>>)
+        .constructor(&std::make_shared<uzume::vocoder::ControlChange, std::vector<uzume::vocoder::ControlPoint>>)
         .function("at", &uzume::vocoder::ControlChange::at)
         .function("add", &uzume::vocoder::ControlChange::add)
         .function("clear", &uzume::vocoder::ControlChange::clear);
