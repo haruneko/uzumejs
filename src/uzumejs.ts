@@ -27,8 +27,10 @@ class UzumeJsImpl implements UzumeJs {
     SynthesizeWaveform = this.wasm.SynthesizeWaveform;
     SynthesizeWaveformWrapper = this.wasm.SynthesizeWaveformWrapper;
     SynthesizeWaveformWithWORLD = this.wasm.SynthesizeWaveformWithWORLD;
+    SynthType = this.wasm.SynthType;
     TimeAxisMap = this.wasm.TimeAxisMap;
     TimeAxisMapWrapper = this.wasm.TimeAxisMapWrapper;
+    VectorControlPoint = this.wasm.VectorControlPoint
     Waveform = this.wasm.Waveform;
     WaveformSpectrogram = this.wasm.WaveformSpectrogram;
 
